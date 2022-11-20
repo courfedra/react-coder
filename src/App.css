@@ -1,1 +1,71 @@
-.titulo{color: cadetblue;}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+}
+
+#root
+{
+    width: 100%;
+    height: 100vh;
+}
+.headerTop
+{
+    width: 100%;
+    padding: 5px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+.navBar
+{
+    width: 100%;
+    min-height: 5vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navBar .enlacesNavBar
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navBar .enlacesNavBar .linkProducto
+{
+    min-width: 10%;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: yellow;
+}
+
+.navBar .enlacesNavBar .linkProducto:hover
+{
+    background-color: gray;
+}
+
+.navBar .enlacesCarrito
+{
+    width: 5%;
+}
+
+.navBar .enlacesCarrito .iconoCarrito
+{
+    min-width: 10%;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: green;
+}
+
+.navBar .enlacesCarrito .iconoCarrito:hover
+{
+    background-color: rebeccapurple;
+}
