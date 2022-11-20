@@ -1,6 +1,7 @@
+import "./App.css";
 const App = () => {
   return (
-    <h1>Hola Mundo Fran</h1>
+    <h1 className="titulo">Hola Mundo!</h1>
   )
 }
 
