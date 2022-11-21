@@ -11,53 +11,75 @@
 {
     width: 100%;
     height: 100vh;
-    background-color: #6ace90
 }
 
 Navbar
 {
-    border: 1px solid #000000;
     width: 100%;
     min-height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #008f39
 }
 
-Navbar .navBarItem
+Navbar .navBarLogo
 {
-    width: auto;
-    padding: 0 5px;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+Navbar .navBarLogo img
+{
+    width: 35%;
+    min-width: 100px;
+}
+
+Navbar .navBarLinks
+{
+    width: 100%;
 }
 
 Navbar .navBarLinks ul
 {
-    padding: 10px;
     list-style: none;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 Navbar .navBarLinks ul button
 {
-    font-size: 1.1rem;
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
     border-radius: 15px;
-    padding: 10px;
-    margin: 0 2.5px;
+    border:none;
+    transition: all .25s ease-in-out;
 }
 
 Navbar .navBarLinks ul button:hover
 {
-    transition: all .25s ease-in-out;
-    background-color: #faebd7;
+    background-color: #f90000;
+    box-shadow: 0px 0px 50px 5px #f90000cc;
+}
+
+Navbar .navBarLinks ul button a
+{
+    letter-spacing: 2px;
 }
 
 Navbar .navBarCart
 {
+    width: 10%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
+
 /*ITEM LIST CONTAINER*/
 .container
 {
@@ -69,15 +91,38 @@ Navbar .navBarCart
 /*FOOTERS*/
 .footer
 {
-    background-color: #000000cc;
+    background-color: #eeeeeecc;
     min-height: 10vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
-.footer ul li{
-    color: #ffffff;
+
+.footer img
+{
+    min-width: 100px;
+    width: 25%;
+}
+
+.footer ul
+{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer ul li
+{
+    width: 100%;
+    color: #000000;
     list-style: none;
     padding: 5px;
+}
+.footer ul li span
+{
+    color: #f90000;
+    font-size: 1.5em;
 }
