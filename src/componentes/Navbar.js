@@ -1,6 +1,7 @@
 import BotonLink from "./BotonLink"
 import LogoNavbar from "./LogoNavbar"
 import CartWidget from "./CartWidget"
+
 const Navbar = () => {
     return (
         <navbar className="navBar">
@@ -9,9 +10,11 @@ const Navbar = () => {
             </div>
             <div className="navBarLinks">
                 <ul>
-                    <li><BotonLink name="GitHub" link="https://github.com/courfedra"/></li>
-                    <li><BotonLink name="Facebook" link="#"/></li>
-                    <li><BotonLink name="Linkedin" link="https://www.linkedin.com/in/franandres/"/></li>
+                    <li><BotonLink name="Arboles" link="#"/></li>
+                    <li><BotonLink name="Guirnaldas" link="#"/></li>
+                    <li><BotonLink name="Luces" link="#"/></li>
+                    <li><BotonLink name="Estrellas" link="#"/></li>
+                    <li><BotonLink name="Pesebre" link="#"/></li>
                 </ul>
             </div>
             <div className="navBarCart">

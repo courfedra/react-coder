@@ -1,15 +1,25 @@
+import ItemList from "./ItemList";
+import data from "../utils/data";
+import {useState, useEffect} from "react";
+import customFetch from "../utils/customFetch";
+
 const ItemListContainer = () => {
+
+    const [datos,setDatos] = useState([]);
+    //componentDidMount
+    useEffect(()=>{
+        //consulta a BD a futuro
+        customFetch(2000,data)
+            .then(response => setDatos(response))
+            .catch(err=>console.log(err))
+    });
+
     return(
-        <div className="container">
-            <Greeting  contenido="Soy un list container 😀"/>
-        </div>
+        <main className="container">
+            <ItemList datos={datos}/>
+        </main>
     )
 }
 
-const Greeting = (props)=>{
-    return(
-        <h2>{props.contenido}</h2>
-    )
-}
 
 export default ItemListContainer
