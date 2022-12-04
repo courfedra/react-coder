@@ -11,10 +11,8 @@ const Navbar = () => {
             <div className="navBarLinks">
                 <ul>
                     <li><BotonLink name="Arboles" link="#"/></li>
-                    <li><BotonLink name="Guirnaldas" link="#"/></li>
-                    <li><BotonLink name="Luces" link="#"/></li>
-                    <li><BotonLink name="Estrellas" link="#"/></li>
-                    <li><BotonLink name="Pesebre" link="#"/></li>
+                    <li><BotonLink name="Accesorios" link="#"/></li>
+                    <li><BotonLink name="Pesebres" link="#"/></li>
                 </ul>
             </div>
             <div className="navBarCart">

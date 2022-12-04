@@ -17,6 +17,7 @@ Navbar
 {
     width: 100%;
     min-height: 10vh;
+    padding: 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,28 +119,107 @@ Navbar .navBarCart .linkCarrito:hover
 
 .gallery .card
 {
-    background-color: #008f39;
+    background-color: #f5f5f5;
     box-shadow: 0px 0px 30px 2px #000000;
     min-width: 250px;
+    min-height: 400px;
     width: 25%;
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
-    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .25s ease-in-out
+}
+
+.gallery .card:hover
+{
+    background-color: #008f39;
 }
 
 .gallery .card img
 {
-    width: 75%;
+    max-width: 200px;
+    max-height: 200px;
     padding: 2.5px;
     border-radius: 5px;
 }
 
-.gallery .card p,h3
+.gallery .card h3
 {
     padding: 2.5px 0;
     font-size: large;
 }
+
+.gallery .card:not(:hover) .infoCardShow
+{
+    background-color: #101010;
+}
+.gallery .card:not(:hover) .infoCardShow p
+{
+    color: #f5f5f5;
+}
+
+.infoCardNone
+{
+    display: none;
+}
+
+.infoCardShow
+{
+    position: absolute;
+    top:10px;
+    background-color: #c7c7c7ee;
+    border-radius: 5px;
+    width: 95%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: all .2s ease-in-out;
+}
+
+.infoCardShow p
+{
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+}
+
+.gallery .card .botonCompra
+{
+    background-color: #f90000;
+    cursor: pointer;
+    width: 150px;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.gallery .card .botonInfo
+{
+    background-color: #008f39;
+    cursor: pointer;
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.gallery .card:hover .botonCompra{background-color: #f5f5f5}
+.gallery .card .botonCompra:hover{background-color: #f90000;}
+
+.gallery .card:hover .botonInfo{background-color: #f5f5f5}
+.gallery .card .botonInfo:hover{background-color: #f90000;}
 
 /*FOOTERS*/
 .footer
@@ -178,4 +258,31 @@ Navbar .navBarCart .linkCarrito:hover
 {
     color: #f90000;
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 850px)
+{
+    Navbar .navBarLinks ul
+    {
+        list-style: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    Navbar .navBarLinks ul button
+    {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 15px;
+        border:none;
+        background-color: transparent;
+    }
+    Navbar .navBarLinks ul button a
+    {
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        transition: all .1s ease-in-out;
+    }
 }
