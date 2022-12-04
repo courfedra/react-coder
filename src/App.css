@@ -55,7 +55,7 @@ Navbar .navBarLinks ul
 
 Navbar .navBarLinks ul button
 {
-    width: 200px;
+    width: 150px;
     padding: 5px;
     margin: 5px;
     border-radius: 15px;
@@ -123,7 +123,7 @@ Navbar .navBarCart .linkCarrito:hover
     box-shadow: 0px 0px 30px 2px #000000;
     min-width: 250px;
     min-height: 400px;
-    width: 25%;
+    width: 20%;
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
@@ -142,8 +142,8 @@ Navbar .navBarCart .linkCarrito:hover
 
 .gallery .card img
 {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 100%;
+    max-height: 40%;
     padding: 2.5px;
     border-radius: 5px;
 }
@@ -260,12 +260,104 @@ Navbar .navBarCart .linkCarrito:hover
     font-size: 1.5em;
 }
 
+/*------------------------------------------------------------------*/
+
 @media screen and (max-width: 850px)
 {
     Navbar .navBarLinks ul
     {
-        list-style: none;
-        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    Navbar .navBarLinks ul button
+    {
+        width: auto;
+    }
+
+    Navbar .navBarLinks ul button a
+    {
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        font-size: medium;
+    }
+    Navbar .navBarCart
+    {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+    }
+    .gallery .card
+    {
+        min-width: 100px;
+        min-height: 200px;
+        text-align: center;
+        width: 20%;
+        margin: 5px;
+        padding: 2.5px;
+    }
+    .gallery .card img
+    {
+        max-width: 100%;
+        max-height: 40%;
+        padding: 2.5px;
+        border-radius: 5px;
+    }
+    .gallery .card h3
+    {
+        padding: 1.5px 0;
+        font-size: medium;
+    }
+    .infoCardShow p
+    {
+        font-size: .5rem;
+        letter-spacing: 1.5px;
+    }
+    .gallery .card .botonCompra
+    {
+        max-width: 70px;
+        margin: 2.5px;
+        padding: 2.5px;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+    .gallery .card .botonInfo
+    {
+        max-width: 90px;
+        margin: 2.5px;
+        padding: 2.5px;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+
+
+}
+
+@media screen and (max-width: 450px)
+{
+    Navbar .navBarLinks ul button a
+    {
+        font-weight: 600;
+        letter-spacing: 1.1px;
+        font-size:smaller;
+    }
+}
+
+@media screen and (max-width: 370px)
+{
+    Navbar .navBarLinks ul button a
+    {
+        font-weight: 600;
+        letter-spacing: 1.1px;
+        font-size:xx-small;
+    }
+}
+
+@media screen and (max-width: 330px)
+{
+    Navbar .navBarLinks ul
+    {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -273,16 +365,14 @@ Navbar .navBarCart .linkCarrito:hover
 
     Navbar .navBarLinks ul button
     {
-        padding: 5px;
-        margin: 5px;
-        border-radius: 15px;
-        border:none;
-        background-color: transparent;
+        margin: 1px;
+        padding: 1px;
     }
+
     Navbar .navBarLinks ul button a
     {
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        transition: all .1s ease-in-out;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: xx-small;
     }
 }
