@@ -1,5 +1,5 @@
 import { useState } from "react"
-const Item = ({nombre,altura,color,cantidad,precio,foto,stock}) => {
+const Item = ({nombre,descripcion,precio,foto,stock}) => {
 
     const [mostrar,setMostrar] = useState("infoCardNone")
 
@@ -15,9 +15,7 @@ const Item = ({nombre,altura,color,cantidad,precio,foto,stock}) => {
                     <button className="botonCompra" onClick={()=>{console.log("Click")}}>Comprar</button>
                     <button className="botonInfo" onClick={verDetalles}>Detalles</button>
                     <div className={mostrar}>
-                        <p>Altura: {altura} metros</p>
-                        <p>Color: {color}</p>
-                        <p>Cantidad: {cantidad}</p>
+                        <p>Descripcion: {descripcion}</p>
                         <p>Precio: ${precio}</p>
                         <p>Stock: {stock} Unidades</p>
                     </div>

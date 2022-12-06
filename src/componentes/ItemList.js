@@ -6,9 +6,7 @@ const ItemList = (props)=>{
                 props.datos.map(item=> <Item
                                         key={item.id}
                                         nombre={item.nombre}
-                                        altura={item.caracteristicas.altura}
-                                        color={item.caracteristicas.color}
-                                        cantidad={item.caracteristicas.cantidad}
+                                        descripcion={item.descripcion}
                                         precio={item.precio}
                                         foto={item.foto}
                                         stock={item.stock}

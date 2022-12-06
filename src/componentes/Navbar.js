@@ -4,26 +4,26 @@ import CartWidget from "./CartWidget"
 
 const Navbar = () => {
     return (
-        <navbar class="navbar navbar-expand-lg navBar">
-            <div class="container-fluid">
-                <a class="navbar-brand navBarLogo" href="#">
+        <navbar className="navbar navbar-expand-lg navBar">
+            <div className="container-fluid">
+                <a className="navbar-brand navBarLogo" href="#">
                     <LogoNavbar/>
                 </a>
-                <div class="collapse navbar-collapse navBarLinks" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
+                <div className="collapse navbar-collapse navBarLinks" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
                             <BotonLink name="Arboles" link="#"/>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <BotonLink name="Accesorios" link="#"/>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <BotonLink name="Pesebre" link="#"/>
                         </li>
                     </ul>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="navBarCart">
                     <CartWidget/>
