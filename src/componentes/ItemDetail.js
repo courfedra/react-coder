@@ -9,7 +9,11 @@ const ItemDetail=(props)=>{
                     <p><b>Precio: </b>${props.datos.precio}</p>
                     <p><b>Descripcion:</b> {props.datos.descripcion}</p>
                 </div>
-                <div className="addCartDetail">Agregar al carrito</div>
+            </div>
+            <div className="addCartDetail">
+                <button className="btnSubs"> - Quitar </button>
+                0
+                <button className="btnAdd"> + Agregar</button>
             </div>
         </>
     )

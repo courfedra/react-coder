@@ -200,7 +200,18 @@ Navbar
                 font-size: larger;
             }
         }
-        .addCartDetail{
+    }
+    .addCartDetail{
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around;
+        .btnAdd{
+            border: none;
+            background-color: #008f39;
+        }
+        .btnSubs{
+            border: none;
             background-color: #f90000;
         }
     }
