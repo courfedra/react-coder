@@ -5,6 +5,7 @@ const ItemList = (props)=>{
             {
                 props.datos.map(item=> <Item
                                         key={item.id}
+                                        id={item.id}
                                         nombre={item.nombre}
                                         descripcion={item.descripcion}
                                         precio={item.precio}
@@ -15,5 +16,6 @@ const ItemList = (props)=>{
         </div>
     )
 }
+
 
 export default ItemList

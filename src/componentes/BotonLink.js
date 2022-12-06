@@ -1,8 +1,9 @@
-const BotonLink=(props)=>{
+import {Link} from "react-router-dom"
+const BotonLink=({link,name})=>{
     return(
         <>
             <button>
-                <a target="_blank" href={props.link}>{props.name}</a>
+                <Link to={link}>{name}</Link>
             </button>
         </>
     )

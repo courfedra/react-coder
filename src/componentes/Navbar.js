@@ -6,19 +6,17 @@ const Navbar = () => {
     return (
         <navbar className="navbar navbar-expand-lg navBar">
             <div className="container-fluid">
-                <a className="navbar-brand navBarLogo" href="#">
-                    <LogoNavbar/>
-                </a>
+                <LogoNavbar/>
                 <div className="collapse navbar-collapse navBarLinks" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <BotonLink name="Arboles" link="#"/>
+                            <BotonLink name="Arboles" link="/categoria/1"/>
                         </li>
                         <li className="nav-item">
-                            <BotonLink name="Accesorios" link="#"/>
+                            <BotonLink name="Accesorios" link="/categoria/2"/>
                         </li>
                         <li className="nav-item">
-                            <BotonLink name="Pesebre" link="#"/>
+                            <BotonLink name="Pesebre" link="/categoria/3"/>
                         </li>
                     </ul>
                 </div>
