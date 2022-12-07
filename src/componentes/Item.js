@@ -9,7 +9,8 @@ const Item = ({id,nombre,precio,foto,stock}) => {
                     <p>Stock: {stock} Unidades</p>
                     <p>Precio: ${precio}</p>
                     <button className="botonCompra" onClick={()=>{console.log("Click")}}>Comprar</button>
-                    <button className="botonInfo" > <Link to={`/item/${id}`} className="linkInfo">Detalles</Link></button>
+                    <Link to={`/item/${id}`} className="linkInfo"><button className="botonInfo" >Detalles</button></Link>
+                    
                 </div>
             </>
     )
