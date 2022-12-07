@@ -1,12 +1,16 @@
 import {useState} from "react"
-const AddCart = (props) => {
+
+const AddCart = (props) =>
+{
     const [counter,setCounter] = useState(0);
+
     const addCart=()=>{
-        setCounter(counter+1)
+        props.stock>=counter?setCounter(counter+1):alert("No hay mas!")
     }
     const subsCart=()=>{
-        setCounter(counter-1)
+        0<counter?setCounter(counter-1):alert("No podes comprar negativo!")
     }
+
     return(
         <div className="containerBtnCart">
             <div className="divAddSubsCart">
@@ -15,7 +19,7 @@ const AddCart = (props) => {
                 <button className="btnAdd" onClick={addCart}> + Agregar</button>
             </div>
             <div className="divBuy">
-                <button className="btnAddCart" onClick={()=>{alert(props.name)}}>Comprar</button>
+                <button className="btnAddCart" onClick={()=>{alert("Comrpaste "+counter+" "+props.name)}}>Comprar</button>
             </div>
         </div>
     )
