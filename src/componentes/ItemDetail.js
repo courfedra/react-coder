@@ -1,3 +1,4 @@
+import AddCart from './AddCart';
 const ItemDetail=(props)=>{
     return(
         <>
@@ -11,9 +12,7 @@ const ItemDetail=(props)=>{
                 </div>
             </div>
             <div className="addCartDetail">
-                <button className="btnSubs"> - Quitar </button>
-                0
-                <button className="btnAdd"> + Agregar</button>
+                <AddCart name={props.datos.name}/>
             </div>
         </>
     )
