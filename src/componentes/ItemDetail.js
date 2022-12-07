@@ -12,7 +12,7 @@ const ItemDetail=(props)=>{
                 </div>
             </div>
             <div className="addCartDetail">
-                <AddCart name={props.datos.nombre} stock={props.datos.stock}/>
+                <AddCart name={props.datos.nombre} stock={props.datos.stock} precio={props.datos.precio}/>
             </div>
         </>
     )
