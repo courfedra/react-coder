@@ -10,13 +10,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse navBarLinks" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <BotonLink name="Arboles" link="/categoria/1"/>
+                            <BotonLink name="Arboles" link="/categoria/arboles"/>
                         </li>
                         <li className="nav-item">
-                            <BotonLink name="Accesorios" link="/categoria/2"/>
+                            <BotonLink name="Accesorios" link="/categoria/accesorios"/>
                         </li>
                         <li className="nav-item">
-                            <BotonLink name="Pesebre" link="/categoria/3"/>
+                            <BotonLink name="Pesebre" link="/categoria/pesebres"/>
                         </li>
                     </ul>
                 </div>
