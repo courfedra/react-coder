@@ -304,19 +304,24 @@ Navbar
                 }
             }
         }
-        .botonCheckout{
-            background-color: #85833e;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            width: 75%;
-            &:hover{
-                background-color: #008f39aa;
-            }
-            .linkCheckout{
-                text-decoration: none;
-                color: #000000;
+        .linkCheckout{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #000000;
+            .botonCheckout{
+                background-color: #85833e;
+                width: 100%;
+                padding: 10px;
+                margin: 10px;
+                border-radius: 5px;
                 letter-spacing: 2px;
+                font-size: large;
+                &:hover{
+                    background-color: #008f39aa;
+                }
             }
         }
     }

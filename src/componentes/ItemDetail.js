@@ -1,13 +1,15 @@
 import ItemCount from './ItemCount';
 import BotonCheckout from "./BotonCheckout"
 import {useState} from "react"
-import {Link} from "react-router-dom"
+
 const ItemDetail=({datos})=>{
+
     const [itemCount, setItemCount]=useState(0)
     const onAdd = (qty) => {
         setItemCount(qty);
-        alert("Compraste")
+        alert("Compraste "+qty+" cosas")
     }
+
     return(
         <>
             <div className="cardDetail">

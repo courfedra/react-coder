@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom"
 const BotonCheckout = () => {
     return(
-        <button className="botonCheckout">
-            <Link to="/Cart" className="linkCheckout">
+        <Link to="/Cart" className="linkCheckout">
+            <button className="botonCheckout">
                 Checkout Carrito
-            </Link>
-        </button>
+            </button>
+        </Link>
     )
 }
 export default BotonCheckout
