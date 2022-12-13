@@ -1,4 +1,4 @@
-import AddCart from './AddCart';
+import ItemCount from './ItemCount';
 const ItemDetail=(props)=>{
     return(
         <>
@@ -12,7 +12,7 @@ const ItemDetail=(props)=>{
                 </div>
             </div>
             <div className="addCartDetail">
-                <AddCart name={props.datos.nombre} stock={props.datos.stock} precio={props.datos.precio}/>
+                <ItemCount name={props.datos.nombre} stock={props.datos.stock} precio={props.datos.precio}/>
             </div>
         </>
     )
