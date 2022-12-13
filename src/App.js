@@ -2,6 +2,7 @@ import "./App.scss";
 import Navbar from './componentes/Navbar'
 import ItemListContainer from './componentes/ItemListContainer'
 import ItemDetailContainer from './componentes/ItemDetailContainer'
+import Cart from "./componentes/Cart"
 import Footers from './componentes/Footers'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.js';
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<ItemListContainer/>}></Route>
             <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}></Route>
             <Route path="/item/:idItem" element={<ItemDetailContainer/>}></Route>
+            <Route path="/cart" element={<Cart/>}></Route>
           </Routes>
           <Footers/>
         </BrowserRouter>

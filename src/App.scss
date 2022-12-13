@@ -49,22 +49,22 @@ Navbar
             {
                 width: 150px;
                 padding: 5px;
-                margin: 5px;
                 border-radius: 15px;
                 border:none;
                 background-color: transparent;
                 a
                 {
                     text-decoration: none;
-                    color: aliceblue;
+                    padding: 5px 10px;
+                    color: #f5f5f5;
                     font-size: 1.5em;
                     font-weight: 600;
                     letter-spacing: 2px;
                     transition: all .1s ease-in-out;
                     &:hover
                     {
-                        background-color: #f90000cc;
-                        padding: 5px;
+                        background-color: #85833e;
+                        padding: 5px 10px;
                         border-radius: 10px;
                     }
                 }
@@ -87,9 +87,7 @@ Navbar
             position: relative;
             &:hover
             {
-                border: 3px dotted #f90000;
-                padding: 5px 10px;
-                border-radius: 15px;
+                rotate: -15deg;
             }
             span{
                 position: absolute;
@@ -100,7 +98,7 @@ Navbar
                 align-items: center;
                 top: 0;
                 right: 0;
-                background-color: red;
+                background-color: #f90000;
                 border-radius: 50%;
                 font-size: 1.25rem;
             }
@@ -126,7 +124,7 @@ Navbar
         .card
         {
             background-color: #f5f5f5;
-            box-shadow: 0px 0px 30px 2px #000000;
+            box-shadow: 0px 0px 30px 2px #101010;
             min-width: 250px;
             min-height: 400px;
             width: 20%;
@@ -159,19 +157,6 @@ Navbar
             {
                 font-weight: 500;
             }
-            .botonCompra
-            {
-                background-color: #f90000;
-                cursor: pointer;
-                width: 150px;
-                margin: 5px;
-                padding: 5px;
-                border: none;
-                border-radius: 30px;
-                letter-spacing: 2px;
-                font-weight: 700;
-                &:hover{background-color: #f90000}
-            }
             .botonInfo
             {
                 background-color: #008f39;
@@ -201,25 +186,28 @@ Navbar
         }
     }
     .cardDetail{
+        display: flex;
         width: 100%;
         min-height: 50vh;
         border: 1px solid #101010ee;
         border-radius: 15px;
         background-color: #008f3955;
         padding: 5px;
-        display: flex;
-        align-items:baseline;
-        img{
-            max-width: 25%;
-            max-height:40%;
-            border-radius: 15px;
+        .ImgCardDetail{
+            display: flex;
+            align-items: center;
+            margin: 0 5px;
+            img{
+                border-radius: 15px;
+                width: 100%;
+            }
         }
         .infoCardDetail{
             width: 100%;
             padding: 5px 10px;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             align-items:center;
             p{
                 font-size: larger;
@@ -254,8 +242,9 @@ Navbar
                     }
                 }
                 .divCounter{
-                    padding: 5px;
+                    padding: 0 10px;
                     color: #008f39;
+                    font-size: 32px;
                 }
                 .btnSubs{
                     border: none;
@@ -272,25 +261,52 @@ Navbar
                     }
                 }
             }
-        .divBuy{
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            .btnAddCart{
-                background-color: #788c94;
-                width: 75%;
-                margin: 2.5px;
-                padding: 5px;
-                border: none;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                border-radius: 30px;
-                &:hover{
-                    background-color: #979c9c;
-                }
+            .divBuy{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                .btnAddCartOn{
+                    background-color: #008f39;
+                    outline: 1px solid #101010;
+                    width: 75%;
+                    margin: 2.5px;
+                    padding: 5px;
+                    border: none;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    border-radius: 30px;
+                    &:hover{
+                        background-color: #008f39aa;
+                        outline: 1px solid #008f39aa;
+                    }
 
+                }
+                .btnAddCartOff{
+                    background-color: #788c94;
+                    color: #566a72;
+                    cursor: default;
+                    width: 75%;
+                    margin: 2.5px;
+                    padding: 5px;
+                    border: none;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    border-radius: 30px;
+
+                }
             }
         }
+        .botonCheckout{
+            background-color: #85833e;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 100%;
+            .linkCheckout{
+                text-decoration: none;
+                color: #000000;
+                letter-spacing: 2px;
+            }
         }
     }
 }
@@ -379,11 +395,6 @@ Navbar
         {
             padding: 1.5px 0;
             font-size: medium;
-        };
-        .infoCardShow p
-        {
-            font-size: .5rem;
-            letter-spacing: 1.5px;
         };
     }
 }

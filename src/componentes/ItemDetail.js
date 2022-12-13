@@ -1,18 +1,33 @@
 import ItemCount from './ItemCount';
-const ItemDetail=(props)=>{
+import BotonCheckout from "./BotonCheckout"
+import {useState} from "react"
+import {Link} from "react-router-dom"
+const ItemDetail=({datos})=>{
+    const [itemCount, setItemCount]=useState(0)
+    const onAdd = (qty) => {
+        setItemCount(qty);
+        alert("Compraste")
+    }
     return(
         <>
             <div className="cardDetail">
-                <img src={props.datos.foto} alt={props.datos.nombre}/>
+                <div className="ImgCardDetail">
+                    <img src={datos.foto} alt={datos.nombre}/>
+                </div>
                 <div className="infoCardDetail">
-                    <h3>{props.datos.nombre}</h3>
-                    <p><b>Stock: </b>{props.datos.stock} Unidades</p>
-                    <p><b>Precio: </b>${props.datos.precio}</p>
-                    <p><b>Descripcion:</b> {props.datos.descripcion}</p>
+                    <h3>{datos.nombre}</h3>
+                    <p><b>Stock: </b>{datos.stock} Unidades</p>
+                    <p><b>Precio: </b>${datos.precio}</p>
+                    <p><b>Descripcion:</b> {datos.descripcion}</p>
                 </div>
             </div>
             <div className="addCartDetail">
-                <ItemCount name={props.datos.nombre} stock={props.datos.stock} precio={props.datos.precio}/>
+            {
+                itemCount===0
+            ? <ItemCount stock={datos.stock} initial={itemCount} onAdd={onAdd}/>
+            : <Link to="/cart"><BotonCheckout link="/cart" name="Carrito"/></Link>
+
+            }
             </div>
         </>
     )
