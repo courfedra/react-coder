@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react"
+import { GrAdd,GrSubtract } from "react-icons/gr";
 
 const ItemCount = ({stock=0,initial=0,onAdd}) =>{
     const [count,setCount] = useState(0);
@@ -17,15 +18,15 @@ const ItemCount = ({stock=0,initial=0,onAdd}) =>{
     return(
         <div className="containerBtnCart">
             <div className="divAddSubsCart">
-                <button className="btnSubs" onClick={decrement}> - Quitar </button>
+                <button className="btnSubs" onClick={decrement}><GrSubtract/></button>
                 <div className="divCounter">{count}</div>
-                <button className="btnAdd" onClick={increment}> + Agregar</button>
+                <button className="btnAdd" onClick={increment}><GrAdd/></button>
             </div>
             <div className="divBuy">
             {
                 stock&&count
-                ? <button className="btnAddCartOn" onClick={onAdd}>Comprar</button>
-                :<button className="btnAddCartOff">Comprar</button>
+                ? <button className="btnAddCartOn" onClick={()=>{onAdd(count)}}>Agregar al carrito</button>
+                :<button className="btnAddCartOff">Agregar al carrito</button>
             }
             </div>
         </div>

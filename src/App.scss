@@ -234,6 +234,10 @@ Navbar
                     padding: 5px;
                     margin: 2.5px;
                     border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: large;
                     &:hover{
                         background-color: #008f39;
                     }
@@ -253,6 +257,10 @@ Navbar
                     padding: 5px;
                     margin: 2.5px;
                     border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: large;
                     &:hover{
                         background-color: #f90000;
                     }
@@ -301,7 +309,10 @@ Navbar
             padding: 10px;
             margin: 10px;
             border-radius: 5px;
-            width: 100%;
+            width: 75%;
+            &:hover{
+                background-color: #008f39aa;
+            }
             .linkCheckout{
                 text-decoration: none;
                 color: #000000;
@@ -396,5 +407,12 @@ Navbar
             padding: 1.5px 0;
             font-size: medium;
         };
+    }
+    .cardDetail{
+        display: flex;
+        flex-direction: column;
+        .ImgCardDetail{
+            width: 25%;
+        }
     }
 }
