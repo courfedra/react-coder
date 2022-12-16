@@ -3,18 +3,16 @@ import {CartContext} from '../componentes/CartContext';
 
 const Cart = () => {
 
-    const ctx=useContext(CartContext);
-
-    console.log(ctx.length)
+    const {cartList}=useContext(CartContext);
 
     return(
         <>
             <h1>Soy un Carrito</h1>
             <ul>
                 {
-                    ctx.length === 0
+                    cartList.length === 0
                     ? <p>Tu carrito esta vacio</p>
-                    : ctx.map(item=> <li key={item.id}>{item.nombre}</li>)
+                    : cartList.map(item=> <li key={item.id}>{item.nombre}</li>)
                 }
             </ul>
         </>

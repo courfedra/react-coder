@@ -3,9 +3,17 @@ import { createContext,useState } from "react"
 export const CartContext = createContext();
 
 const CartContextProvider = ({children}) =>{
-    const [cartList,setCartList]=useState([ ])
+    //array del carrito
+    const [cartList,setCartList]=useState([])
+    //funcion global, ver en el entregable
+    const addToCart=(item)=>{
+        setCartList([
+            ...cartList,
+            item
+        ])
+    }
     return(
-        <CartContext.Provider  value={[cartList]}>
+        <CartContext.Provider  value={{cartList, addToCart}}>
             {children}
         </CartContext.Provider>
     )

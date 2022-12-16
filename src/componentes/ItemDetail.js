@@ -1,13 +1,19 @@
 import ItemCount from './ItemCount';
 import BotonCheckout from "./BotonCheckout"
-import {useState} from "react"
+import {useState,useContext} from "react"
+import {CartContext} from "../componentes/CartContext"
 
 const ItemDetail=({datos})=>{
 
-    const [itemCount, setItemCount]=useState(0)
+    const [itemCount, setItemCount]=useState(0);
+    const {addToCart}=useContext(CartContext);
+
+
     const onAdd = (qty) => {
         setItemCount(qty);
         alert("Compraste "+qty+" cosas")
+        //funcion global del contexto para agregar el producto al carrito
+        addToCart(datos)
     }
 
     return(
