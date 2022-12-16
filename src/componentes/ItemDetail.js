@@ -13,7 +13,7 @@ const ItemDetail=({datos})=>{
         setItemCount(qty);
         alert("Compraste "+qty+" cosas")
         //funcion global del contexto para agregar el producto al carrito
-        addToCart(datos)
+        addToCart(datos,qty)
     }
 
     return(
