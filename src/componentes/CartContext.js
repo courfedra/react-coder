@@ -12,18 +12,10 @@ const CartContextProvider = ({children}) =>{
         const repetido=cartList.some(prod=>prod.id===item.id)
 
         if (repetido){
-
-            console.log("Repetido")
-
-            const indice = cartList.indexOf(itemRepetido)
-
-            console.log(cartList[indice].cantidad)
+            itemRepetido.cantidad+=cantidad
+            setCartList([...cartList])
         }else{
             setCartList([
-
-
-
-
                 ...cartList,
                 {
                     id:item.id,
