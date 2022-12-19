@@ -1,4 +1,5 @@
 import ItemList from "./ItemList";
+import Loading from "./Loading"
 import data from "../utils/data";
 import {useState, useEffect} from "react";
 import customFetch from "../utils/customFetch";
@@ -29,7 +30,10 @@ const ItemListContainer = () => {
 
     return(
         <main className="container">
-            <ItemList datos={datos}/>
+            {datos.length>0
+                ?<ItemList datos={datos}/>
+                :<Loading/>
+            }
         </main>
     )
 }

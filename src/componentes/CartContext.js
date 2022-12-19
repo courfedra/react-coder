@@ -5,6 +5,7 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) =>{
     //array del carrito
     const [cartList,setCartList]=useState([])
+    const [totalPrice,setTotalPrice]=useState(0)
 
     //funcion global, ver en el entregable
     const addToCart=(item,cantidad)=>{
@@ -22,7 +23,8 @@ const CartContextProvider = ({children}) =>{
                     nombre:item.nombre,
                     foto:item.foto,
                     precio:item.precio,
-                    cantidad:cantidad
+                    cantidad:cantidad,
+                    stock:item.stock
                 }
             ])
         }
@@ -36,8 +38,10 @@ const CartContextProvider = ({children}) =>{
         setCartList([]);
     }
 
+    
+
     return(
-        <CartContext.Provider  value={{cartList, addToCart,deleteThis,clearCart}}>
+        <CartContext.Provider  value={{cartList, addToCart,deleteThis,clearCart,totalPrice}}>
             {children}
         </CartContext.Provider>
     )

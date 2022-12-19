@@ -136,6 +136,23 @@ Navbar
                 justify-content: space-around;
                 align-items: center;
                 font-size: 1.5em;
+                .addInCart{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    width: 25%;
+                    .btnAddInCart{
+                        background-color: #008f39;
+                        margin: 5px;
+                        width: 25%;
+                        border-radius: 10px;
+                    }
+                    .btnSubInCart{
+                        background-color: #f90000;
+                        @extend .btnAddInCart
+                    }
+                }
                 .btnDeleteThis{
                     border-radius: 15px;
                     padding: 5px;
