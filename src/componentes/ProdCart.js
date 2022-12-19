@@ -1,28 +1,33 @@
 import { GrAdd,GrSubtract } from "react-icons/gr";
-import {useState,useContext} from "react"
+import {useState,useContext,useEffect} from "react"
 import {CartContext} from '../componentes/CartContext'
 
-export const ProdCart = ({stockActual,cantidadActual,precio,id,totalAmount})=>{
-    const [cantProd,setCantProd]=useState(cantidadActual)
+export const ProdCart = ({stockActual,cantidadActual,precio,caramelo})=>{
 
+    const {showTotalAmount}=useContext(CartContext)
+    const {cantProdActualizado}=useContext(CartContext)
+    const {cantProd}=useContext(CartContext)
     const addInCart=()=>{
-
-        if(cantProd < stockActual){
-            setCantProd(cantProd+1);
-            totalAmount(precio,true)
+        if(cantidadActual < stockActual){
+            cantProdActualizado(cantidadActual);
+            showTotalAmount(precio,true)
         }else{
             console.log("Error")
         }
     }
 
     const subInCart=()=>{
-        if(cantProd>1){
-            setCantProd(cantProd-1);
-            totalAmount(precio,false)
+        if(cantidadActual>1){
+            cantProdActualizado(cantidadActual);
+            showTotalAmount(precio,false)
         }else{
             console.log("Error")
         }
     }
+
+    useEffect(()=>{
+        caramelo();
+    },[])
 
     return(
             <>

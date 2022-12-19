@@ -9,22 +9,8 @@ const Cart = () => {
     const {deleteThis}=useContext(CartContext);
     const {clearCart}=useContext(CartContext);
     const {buyCart}=useContext(CartContext);
-    //busco los subtotales iniciales del carrito
-    let subTotalArray=cartList.map(item=>item.precio*item.cantidad)
-    let subTotalNumbers=0
-    subTotalArray.forEach(item=>subTotalNumbers=item+subTotalNumbers)
-    const [precioFinal,setPrecioFinal]=useState(subTotalNumbers)
-
-    //cantida a aumentar en el contador de precio total
-    let subTotal=0
-    const totalAmount=(precio,sumRes)=>{
-
-            sumRes
-            ?setPrecioFinal(precioFinal+precio)
-            :setPrecioFinal(precioFinal-precio)
-            console.log(subTotal+" subtotal")
-            console.log(precioFinal+" precioFinal")
-     }
+    const {precioFinal}=useContext(CartContext);
+    const {caramelo}=useContext(CartContext);
 
 
     return(
@@ -43,7 +29,7 @@ const Cart = () => {
                                     cantidadActual={item.cantidad}
                                     precio={item.precio}
                                     id={item.id}
-                                    totalAmount={totalAmount}
+                                    caramelo={caramelo}
                                 />
                                 <button className="btnDeleteThis" onClick={()=>{deleteThis(item.id)}}>Eliminar producto</button>
                             </div>
