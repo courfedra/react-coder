@@ -2,7 +2,7 @@ import { GrAdd,GrSubtract } from "react-icons/gr";
 import {useState,useContext,useEffect} from "react"
 import {CartContext} from '../componentes/CartContext'
 
-export const ProdCart = ({stockActual,cantidadActual,precio,caramelo})=>{
+export const ProdCart = ({stockActual,cantidadActual,precio,firstTotalPrice})=>{
 
     const {showTotalAmount}=useContext(CartContext)
     const {cantProdActualizado}=useContext(CartContext)
@@ -26,7 +26,7 @@ export const ProdCart = ({stockActual,cantidadActual,precio,caramelo})=>{
     }
 
     useEffect(()=>{
-        caramelo();
+        firstTotalPrice();
     },[])
 
     return(

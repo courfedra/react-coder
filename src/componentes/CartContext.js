@@ -51,7 +51,7 @@ const CartContextProvider = ({children}) =>{
         setPrecioFinal(0)
     }
 
-    const caramelo=()=>{
+    const firstTotalPrice=()=>{
         let subTotalArray=cartList.map(item=>item.precio*item.cantidad)
         console.log(subTotalArray+" subArray caramelo")
         let subTotalNumbers=0
@@ -78,7 +78,7 @@ const CartContextProvider = ({children}) =>{
                                         deleteThis,
                                         clearCart,
                                         totalPrice,
-                                        caramelo,
+                                        firstTotalPrice,
                                         precioFinal,
                                         showTotalAmount,
                                         cantProd,

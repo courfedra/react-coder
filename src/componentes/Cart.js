@@ -10,7 +10,7 @@ const Cart = () => {
     const {clearCart}=useContext(CartContext);
     const {buyCart}=useContext(CartContext);
     const {precioFinal}=useContext(CartContext);
-    const {caramelo}=useContext(CartContext);
+    const {firstTotalPrice}=useContext(CartContext);
 
 
     return(
@@ -29,7 +29,7 @@ const Cart = () => {
                                     cantidadActual={item.cantidad}
                                     precio={item.precio}
                                     id={item.id}
-                                    caramelo={caramelo}
+                                    firstTotalPrice={firstTotalPrice}
                                 />
                                 <button className="btnDeleteThis" onClick={()=>{deleteThis(item.id)}}>Eliminar producto</button>
                             </div>
