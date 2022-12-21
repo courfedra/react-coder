@@ -14,7 +14,7 @@ const ItemListContainer = () => {
         //consulta a BD a futuro
         if (idCategoria)
         {
-            customFetch(2000,data.filter(item=>item.categoria===idCategoria))
+            customFetch(200,data.filter(item=>item.categoria===idCategoria))
             .then(response => setDatos(response))
             .catch(err=>console.log(err))
         }

@@ -27,6 +27,7 @@ const Cart = () => {
                                 <ProdCart
                                     stockActual={item.stock}
                                     cantidadActual={item.cantidad}
+                                    cantidadComprada={item.comprado}
                                     precio={item.precio}
                                     id={item.id}
                                     firstTotalPrice={firstTotalPrice}
