@@ -43,6 +43,12 @@ const CartContextProvider = ({children}) =>{
 
     }
 
+    const actualizarCantidadCarrito=(id, cant)=>{
+        const itemFind=cartList.find(item=>item.id==id)
+        itemFind.cantidad=cant
+        setCartList([...cartList])
+    }
+
     //limpia el carrito y setea el precio final a 0
     const clearCart=()=>{
         setCartList([]);
@@ -74,6 +80,7 @@ const CartContextProvider = ({children}) =>{
                                         firstTotalPrice,
                                         precioFinal,
                                         showTotalAmount,
+                                        actualizarCantidadCarrito,
                                         }}>
             {children}
         </CartContext.Provider>

@@ -4,7 +4,7 @@ import {CartContext} from '../componentes/CartContext'
 
 export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,deleteThis})=>{
 
-    const {showTotalAmount,cartList}=useContext(CartContext)
+    const {showTotalAmount,cartList,actualizarCantidadCarrito}=useContext(CartContext)
     const [cantItem,setCantItem]=useState(cantidad)
 
 
@@ -20,6 +20,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
         if(cantItem < stock){
             actualizarCantidadTotal(cantItem+1)
             showTotalAmount(precio,true);
+            actualizarCantidadCarrito(id,cantItem+1)
         }else{
             console.log("Error");
         }
@@ -31,6 +32,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
         if(cantItem>1){
             actualizarCantidadTotal(cantItem-1)
             showTotalAmount(precio,false);
+            actualizarCantidadCarrito(id,cantItem-1)
         }else{
             console.log("Error");
         }
@@ -45,7 +47,6 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
     useEffect(()=>{
         setCantItem(cantidad)
     },[cartList])
-
 
     return(
             <>
