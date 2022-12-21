@@ -1,4 +1,4 @@
-import {useContext,useState} from "react"
+import {useContext,useEffect,useState} from "react"
 import {CartContext} from '../componentes/CartContext'
 import {ProdCart} from "./ProdCart"
 import TotalPrice from "./TotalPrice"
@@ -13,6 +13,7 @@ const Cart = () => {
     const {firstTotalPrice}=useContext(CartContext);
 
 
+
     return(
         <div className="cart">
             <ul className="cartCard">
@@ -20,21 +21,16 @@ const Cart = () => {
                     cartList.length === 0
                     ? <p>Tu carrito esta vacio</p>
                     : cartList.map(item=>
-                        <div className="prodInCart">
-                            <img src={item.foto} alt={item.nombre}/>
-                            <div className="prodInCartInfo">
-                                <li key={item.id}>{item.nombre}</li>
-                                <ProdCart
-                                    stockActual={item.stock}
-                                    cantidadActual={item.cantidad}
-                                    cantidadComprada={item.comprado}
-                                    precio={item.precio}
-                                    id={item.id}
-                                    firstTotalPrice={firstTotalPrice}
-                                />
-                                <button className="btnDeleteThis" onClick={()=>{deleteThis(item.id)}}>Eliminar producto</button>
-                            </div>
-                        </div>
+                        <ProdCart
+                            img={item.foto}
+                            nombre={item.nombre}
+                            stock={item.stock}
+                            cantidad={item.cantidad}
+                            precio={item.precio}
+                            id={item.id}
+                            firstTotalPrice={firstTotalPrice}
+                            deleteThis={deleteThis}
+                        />
                     )
                 }
             </ul>

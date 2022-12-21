@@ -2,25 +2,23 @@ import { GrAdd,GrSubtract } from "react-icons/gr";
 import {useState,useContext,useEffect} from "react"
 import {CartContext} from '../componentes/CartContext'
 
-export const ProdCart = ({stockActual,cantidadActual,cantidadComprada,precio,firstTotalPrice,id})=>{
+export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,deleteThis})=>{
 
-    const {showTotalAmount}=useContext(CartContext)
-    const {actualizarCarritoCantidad}=useContext(CartContext)
-    const [cantItem,setCantItem]=useState(cantidadComprada)
+    const {showTotalAmount,cartList}=useContext(CartContext)
+    const [cantItem,setCantItem]=useState(cantidad)
+
 
 //PASAR TODO A LOCAL
 
     const actualizarCantidadTotal = (cant)=>{
-        console.log(cantItem+" el cantItem y el cant "+cant)
         setCantItem(cant)
     }
 
     //funcion para agregar si hay stock
     const addInCart=()=>{
 
-        if(cantItem < stockActual){
+        if(cantItem < stock){
             actualizarCantidadTotal(cantItem+1)
-            actualizarCarritoCantidad(id,true)
             showTotalAmount(precio,true);
         }else{
             console.log("Error");
@@ -32,7 +30,6 @@ export const ProdCart = ({stockActual,cantidadActual,cantidadComprada,precio,fir
 
         if(cantItem>1){
             actualizarCantidadTotal(cantItem-1)
-            actualizarCarritoCantidad(id,false)
             showTotalAmount(precio,false);
         }else{
             console.log("Error");
@@ -44,16 +41,28 @@ export const ProdCart = ({stockActual,cantidadActual,cantidadComprada,precio,fir
         firstTotalPrice();
     },[])
 
+    //renuevo el valor de cantidad y cantItem al eliminar un producto del array de cartList
+    useEffect(()=>{
+        setCantItem(cantidad)
+    },[cartList])
+
 
     return(
             <>
-                <div className="addInCart">
-                    <button onClick={subInCart} className="btnSubInCart"><GrSubtract/></button>
-                    <li>Cantidad: {cantItem}</li>
-                    <button onClick={addInCart} className="btnAddInCart"><GrAdd/></button>
-                </div>
-                <li>Precio Unitario: ${precio}</li>
-                <li>Sub Total: ${cantItem*precio}</li>
+            <div className="prodInCart">
+                            <img src={img} alt={nombre}/>
+                            <div className="prodInCartInfo">
+                                <li key={id}>{nombre}</li>
+                                <div className="addInCart">
+                                    <button onClick={subInCart} className="btnSubInCart"><GrSubtract/></button>
+                                    <li>Cantidad: {cantItem}</li>
+                                    <button onClick={addInCart} className="btnAddInCart"><GrAdd/></button>
+                                </div>
+                                <li>Precio Unitario: ${precio}</li>
+                                <li>Sub Total: ${cantItem*precio}</li>
+                                <button className="btnDeleteThis" onClick={()=>{deleteThis(id,cantItem)}}>Eliminar producto</button>
+                            </div>
+                        </div>
             </>
     )
 }

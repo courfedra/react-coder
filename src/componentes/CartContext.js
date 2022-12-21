@@ -5,7 +5,6 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) =>{
     //array del carrito
     const [cartList,setCartList]=useState([])
-    const [totalPrice,setTotalPrice]=useState(0)
     const [precioFinal,setPrecioFinal]=useState(0)
 
     //funcion global, ver en el entregable
@@ -15,7 +14,7 @@ const CartContextProvider = ({children}) =>{
 
         if (repetido){
             itemRepetido.cantidad+=cantidad
-            itemRepetido.comprado+=cantidad
+            itemRepetido.cantidad+=cantidad
             setCartList([...cartList])
         }else{
             setCartList([
@@ -26,49 +25,21 @@ const CartContextProvider = ({children}) =>{
                     foto:item.foto,
                     precio:item.precio,
                     cantidad:cantidad,
-                    stock:item.stock,
-                    comprado:cantidad
+                    stock:item.stock
                 }
             ])
         }
     }
 
-       //actualizo el carrito con los valores al aumentar  o disminuir la cantidad de cada item
-    const actualizarCarritoCantidad=(id,valor)=>{
-        console.log("actualizar carrito con el valor: "+valor)
-        const itemParaActualizar=cartList.find(prod=>prod.id==id)
-        if(valor===true){
-            itemParaActualizar.comprado+=1
-        }else{
-            itemParaActualizar.comprado-=1
-        }
-        console.log("actualizado carrito en "+itemParaActualizar.comprado+" comprado y cantidad: "+itemParaActualizar.cantidad)
-        setCartList(cartList)
-    }
-
     //borra el item seleccionado y resta el subtotal obtenido al precio final en pantalla
-    const deleteThis=(id)=>{
+    const deleteThis=(id,cantidad)=>{
         const itemFind=cartList.find(item=>item.id==id)
-
-        console.log(itemFind.precio+" el precio,"+itemFind.comprado+" lo comprado.")
-        console.log((itemFind.precio*itemFind.comprado)+" deleteThis")
 
         const newCartList=cartList.filter(item=>item.id!==id)
 
         //setPrecioFinal(precioFinal-(itemFind.precio*(itemFind.cantidad-1)))
-        setCartList([...newCartList])
-
-        console.log("---new cart list")
-        console.log([...newCartList])
-        console.log("---cart list")
-        console.log([...cartList])
-
-        showTotalAmount(itemFind.precio*(itemFind.comprado),false)
-
-        console.log("borrado------------------------")
-        console.log(itemFind.precio+" el precio,"+itemFind.comprado+" lo comprado.")
-        console.log((itemFind.precio*itemFind.comprado)+" deleteThis")
-        console.log("hago first precio---------")
+        setCartList(newCartList)
+        showTotalAmount(itemFind.precio*(cantidad),false)
 
     }
 
@@ -84,7 +55,6 @@ const CartContextProvider = ({children}) =>{
         let subTotalNumbers=0
         subTotalArray.forEach(item=>subTotalNumbers=item+subTotalNumbers)
         setPrecioFinal(subTotalNumbers)
-        console.log(cartList)
         //cantida a aumentar en el contador de precio total
     }
 
@@ -93,8 +63,7 @@ const CartContextProvider = ({children}) =>{
         sumRes
         ?setPrecioFinal(precioFinal+precio)
         :setPrecioFinal(precioFinal-precio);
-
-}
+        }
 
     return(
         <CartContext.Provider  value={{
@@ -102,11 +71,9 @@ const CartContextProvider = ({children}) =>{
                                         addToCart,
                                         deleteThis,
                                         clearCart,
-                                        totalPrice,
                                         firstTotalPrice,
                                         precioFinal,
                                         showTotalAmount,
-                                        actualizarCarritoCantidad
                                         }}>
             {children}
         </CartContext.Provider>
