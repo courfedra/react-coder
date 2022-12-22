@@ -2,6 +2,7 @@ import {useContext,useEffect,useState} from "react"
 import {CartContext} from '../componentes/CartContext'
 import {ProdCart} from "./ProdCart"
 import TotalPrice from "./TotalPrice"
+import {Link} from "react-router-dom"
 
 const Cart = () => {
 
@@ -19,9 +20,13 @@ const Cart = () => {
             <ul className="cartCard">
                 {
                     cartList.length === 0
-                    ? <p>Tu carrito esta vacio</p>
+                    ? <>
+                        <p>Tu carrito esta vacio</p>
+                        <button><Link to={"/"}>Volver al inicio</Link></button>
+                      </>
                     : cartList.map(item=>
                         <ProdCart
+                            key={item.id}
                             img={item.foto}
                             nombre={item.nombre}
                             stock={item.stock}

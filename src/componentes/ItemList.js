@@ -11,6 +11,7 @@ const ItemList = (props)=>{
                                         precio={item.precio}
                                         foto={item.foto}
                                         stock={item.stock}
+                                        stockCart={item.stockCart}
                                         />)
             }
         </div>

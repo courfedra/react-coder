@@ -25,7 +25,8 @@ const CartContextProvider = ({children}) =>{
                     foto:item.foto,
                     precio:item.precio,
                     cantidad:cantidad,
-                    stock:item.stock
+                    stock:item.stock,
+                    stockCart:item.stock
                 }
             ])
         }
@@ -43,11 +44,20 @@ const CartContextProvider = ({children}) =>{
 
     }
 
-    const actualizarCantidadCarrito=(id, cant)=>{
+    //actualizo la cantidad de items agregados dentro del carrito
+    const actualizarCantidadCarrito=(id, cant,sumRes)=>{
         const itemFind=cartList.find(item=>item.id==id)
         itemFind.cantidad=cant
+
+
+        sumRes==true
+        ?itemFind.stockCart-=1
+        :itemFind.stockCart+=1
+
         setCartList([...cartList])
+
     }
+
 
     //limpia el carrito y setea el precio final a 0
     const clearCart=()=>{

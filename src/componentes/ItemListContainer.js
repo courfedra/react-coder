@@ -1,14 +1,16 @@
 import ItemList from "./ItemList";
 import Loading from "./Loading"
 import data from "../utils/data";
-import {useState, useEffect} from "react";
+import {useState, useEffect,useContext} from "react";
 import customFetch from "../utils/customFetch";
 import {useParams} from "react-router-dom"
+import {CartContext} from "./CartContext"
 
 const ItemListContainer = () => {
 
     const [datos,setDatos] = useState([]);
     const {idCategoria}=useParams();
+
     //componentDidMount
     useEffect(()=>{
         //consulta a BD a futuro
@@ -25,8 +27,6 @@ const ItemListContainer = () => {
             .catch(err=>console.log(err))
         }
     },[idCategoria]);
-
-
 
     return(
         <main className="container">

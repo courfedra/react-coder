@@ -7,6 +7,7 @@ const data = [
       precio:7500,
       foto:"https://i.ibb.co/c8Cw5N7/arbol-Nevado.jpg",
       stock:3,
+      stockCart:3,
       categoria:"arboles"
     },
     {
@@ -17,6 +18,7 @@ const data = [
       precio:11000,
       foto:"https://i.ibb.co/MPzLjv7/arbol-Frondoso.jpg",
       stock:9,
+      stockCart:9,
       categoria:"arboles"
     },
     {
@@ -27,6 +29,7 @@ const data = [
       precio:1000,
       foto:"https://i.ibb.co/B4JSZsg/estrella-Dorada.jpg",
       stock:5,
+      stockCart:5,
       categoria:"accesorios"
     },
     {
@@ -37,6 +40,7 @@ const data = [
       precio:1500,
       foto:"https://i.ibb.co/fY0p0yt/estrella-Blanca.jpg",
       stock:3,
+      stockCart:3,
       categoria:"accesorios"
     },
     {
@@ -47,6 +51,7 @@ const data = [
       precio:4000,
       foto:"https://i.ibb.co/zF5d9bX/luces-Blancas.jpg",
       stock:9,
+      stockCart:9,
       categoria:"accesorios"
     },
     {
@@ -57,6 +62,7 @@ const data = [
       precio:3500,
       foto:"https://i.ibb.co/brpDtF4/luces-Colores.jpg",
       stock:7,
+      stockCart:7,
       categoria:"accesorios"
     },
     {
@@ -67,6 +73,7 @@ const data = [
       precio:1500,
       foto:"https://i.ibb.co/Pc3F4sg/esfera-Colores.jpg",
       stock:8,
+      stockCart:8,
       categoria:"accesorios"
     },
     {
@@ -77,6 +84,7 @@ const data = [
       precio:2000,
       foto:"https://i.ibb.co/FHtBjqp/esfera-Blanca.jpg",
       stock:10,
+      stockCart:10,
       categoria:"accesorios"
     },
     {
@@ -87,6 +95,7 @@ const data = [
       precio:11000,
       foto:"https://i.ibb.co/N1Rp7By/pesebre-Grande.webp",
       stock:3,
+      stockCart:3,
       categoria:"pesebres"
     },
     {
@@ -97,6 +106,7 @@ const data = [
       precio:7500,
       foto:"https://i.ibb.co/mzKTp34/pesebre-Chico.jpg",
       stock:4,
+      stockCart:4,
       categoria:"pesebres"
     }
 

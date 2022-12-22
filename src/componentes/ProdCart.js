@@ -10,6 +10,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
 
 //PASAR TODO A LOCAL
 
+    //actualizo el valor de la cantidad del item comprado
     const actualizarCantidadTotal = (cant)=>{
         setCantItem(cant)
     }
@@ -20,7 +21,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
         if(cantItem < stock){
             actualizarCantidadTotal(cantItem+1)
             showTotalAmount(precio,true);
-            actualizarCantidadCarrito(id,cantItem+1)
+            actualizarCantidadCarrito(id,cantItem+1,true)
         }else{
             console.log("Error");
         }
@@ -32,7 +33,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
         if(cantItem>1){
             actualizarCantidadTotal(cantItem-1)
             showTotalAmount(precio,false);
-            actualizarCantidadCarrito(id,cantItem-1)
+            actualizarCantidadCarrito(id,cantItem-1,false)
         }else{
             console.log("Error");
         }
