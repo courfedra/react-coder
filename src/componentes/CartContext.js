@@ -1,4 +1,5 @@
 import { createContext,useState } from "react"
+import Swal from "sweetalert2"
 
 export const CartContext = createContext();
 
@@ -32,16 +33,61 @@ const CartContextProvider = ({children}) =>{
         }
     }
 
+//funcion de mostrar Alert
+    const mostrarAlert=(id,cantidad)=>{
+        //si entra por deleteThis
+        if (id||cantidad){
+            Swal.fire({
+                title: '¿Seguro que desea eliminar este producto?',
+                text: "Modificaras tu carrito de manera irreversible",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Si, quiero hacerlo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Listo',
+                        'Se ha borrado exitosamente',
+                        'success'
+                    );
+                    const itemFind=cartList.find(item=>item.id==id)
+                    const newCartList=cartList.filter(item=>item.id!==id)
+                    //setPrecioFinal(precioFinal-(itemFind.precio*(itemFind.cantidad-1)))
+                    setCartList(newCartList)
+                    showTotalAmount(itemFind.precio*(cantidad),false)
+                }
+            })
+        }
+        else//si entra por clearCart
+        {
+        Swal.fire({
+            title: '¿Seguro que desea eliminar todo el carrito?',
+            text: "Modificaras tu carrito de manera irreversible",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si, quiero hacerlo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                    'Listo',
+                    'Se ha vaciado el carrito',
+                    'success'
+                    );
+                    setCartList([]);
+                    setPrecioFinal(0)
+                }
+            })
+
+        }
+    }
+
     //borra el item seleccionado y resta el subtotal obtenido al precio final en pantalla
     const deleteThis=(id,cantidad)=>{
-        const itemFind=cartList.find(item=>item.id==id)
-
-        const newCartList=cartList.filter(item=>item.id!==id)
-
-        //setPrecioFinal(precioFinal-(itemFind.precio*(itemFind.cantidad-1)))
-        setCartList(newCartList)
-        showTotalAmount(itemFind.precio*(cantidad),false)
-
+            mostrarAlert(id,cantidad);
     }
 
     //actualizo la cantidad de items agregados dentro del carrito
@@ -61,8 +107,7 @@ const CartContextProvider = ({children}) =>{
 
     //limpia el carrito y setea el precio final a 0
     const clearCart=()=>{
-        setCartList([]);
-        setPrecioFinal(0)
+        mostrarAlert()
     }
 
     //toma el cartList, lo lee, realiza las sumas de los subtotales y lo muestra por primera vez

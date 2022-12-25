@@ -7,13 +7,12 @@ const CartWidget = () => {
     const {cartList}=useContext(CartContext);
     const[cantCompra,setCantCompra]=useState(0);
     let valor = 0
+    //por cada elemento del carrito, le asigno a la variable valor la suma de todas las cantidades de items comprado
     cartList.forEach(item=>{valor+=item.cantidad})
-
+    //al modificarse la variable valor, se setea el valor de cantCompra y se actualiza en pantalla
     useEffect(()=>{
         setCantCompra(valor)
     },[valor])
-
-
 
     return(
 
