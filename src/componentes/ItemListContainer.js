@@ -5,28 +5,33 @@ import {useState, useEffect,useContext} from "react";
 import customFetch from "../utils/customFetch";
 import {useParams} from "react-router-dom"
 import {CartContext} from "./CartContext"
-
+import { collection, getDocs } from "firebase/firestore";
+import {db} from "../utils/firebaseConfig"
 const ItemListContainer = () => {
 
     const [datos,setDatos] = useState([]);
     const {idCategoria}=useParams();
 
-    //componentDidMount
+const dbAsync= async()=>{
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        querySnapshot.forEach((doc) => {
+            console.log("***")
+            console.log(`${doc.id} => ${doc.data()}`);
+            console.log("***")
+        });
+    }
+
+//componentDidMount
     useEffect(()=>{
-        //consulta a BD a futuro
-        if (idCategoria)
-        {
-            customFetch(200,data.filter(item=>item.categoria===idCategoria))
-            .then(response => setDatos(response))
-            .catch(err=>console.log(err))
-        }
-        else
-        {
-            customFetch(2000,data)
-            .then(response => setDatos(response))
-            .catch(err=>console.log(err))
-        }
+        dbAsync();
     },[idCategoria]);
+
+//componente willUnMount
+    useEffect(()=>{
+        return(()=>{
+            setDatos([]);
+        })
+    },[])
 
     return(
         <main className="container">

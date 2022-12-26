@@ -2,10 +2,17 @@ import { GrAdd,GrSubtract } from "react-icons/gr";
 import {useState,useContext,useEffect} from "react"
 import {CartContext} from '../componentes/CartContext'
 
+import {ToastContainer, toast} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
+
 export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,deleteThis})=>{
 
     const {showTotalAmount,cartList,actualizarCantidadCarrito}=useContext(CartContext)
     const [cantItem,setCantItem]=useState(cantidad)
+
+//Toastify
+
+
 
 
 //PASAR TODO A LOCAL
@@ -23,7 +30,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
             showTotalAmount(precio,true);
             actualizarCantidadCarrito(id,cantItem+1,true)
         }else{
-            console.log("Error");
+            alert("Poner Toasti")
         }
     }
 
@@ -35,7 +42,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
             showTotalAmount(precio,false);
             actualizarCantidadCarrito(id,cantItem-1,false)
         }else{
-            console.log("Error");
+            alert("Poner Toasti")
         }
     }
 

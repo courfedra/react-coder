@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react"
 import { GrAdd,GrSubtract } from "react-icons/gr";
+import {ToastContainer, toast} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
 const ItemCount = ({stock=0,initial=0,onAdd}) =>{
     const [count,setCount] = useState(0);
