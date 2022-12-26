@@ -33,18 +33,6 @@ const CartContextProvider = ({children}) =>{
         }
     }
 
-//funcion de mostrar Alert
-    const mostrarAlert=(id,cantidad)=>{
-        //si entra por deleteThis
-        if (id||cantidad){
-            
-        }
-        else//si entra por clearCart
-        {
-        
-
-        }
-    }
 
     //borra el item seleccionado y resta el subtotal obtenido al precio final en pantalla
     const deleteThis=(id,cantidad)=>{
@@ -77,7 +65,6 @@ const CartContextProvider = ({children}) =>{
     const actualizarCantidadCarrito=(id, cant,sumRes)=>{
         const itemFind=cartList.find(item=>item.id==id)
         itemFind.cantidad=cant
-
 
         sumRes==true
         ?itemFind.stockCart-=1
