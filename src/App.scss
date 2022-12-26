@@ -163,6 +163,16 @@ Navbar
                 }
             }
         }
+        .btnVolver{
+            background-color: #008f39;
+            padding: 5px;
+            margin: 5px;
+            letter-spacing: 1.5px;
+            border-radius: 15px;
+            &:hover{
+                background-color: #008f39cc;
+            }
+        }
     }
     .btnCard{
         display: flex;
@@ -188,7 +198,6 @@ Navbar
             }
         }
     }
-    
 
 }
 /*ITEM LIST CONTAINER*/
@@ -408,6 +417,16 @@ Navbar
                     background-color: #008f39aa;
                 }
             }
+        }
+    }
+    .btnVolver{
+        background-color: #008f39;
+        padding: 5px;
+        margin: 5px;
+        letter-spacing: 1.5px;
+        border-radius: 15px;
+        &:hover{
+            background-color: #008f39cc;
         }
     }
 }

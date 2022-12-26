@@ -22,7 +22,7 @@ const Cart = () => {
                     cartList.length === 0
                     ? <>
                         <p>Tu carrito esta vacio</p>
-                        <button><Link to={"/"}>Volver al inicio</Link></button>
+                        <Link to={"/"}><button className="btnVolver">Volver al inicio</button></Link>
                       </>
                     : cartList.map(item=>
                         <ProdCart

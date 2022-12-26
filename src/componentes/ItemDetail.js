@@ -2,6 +2,7 @@ import ItemCount from './ItemCount';
 import BotonCheckout from "./BotonCheckout"
 import {useState,useContext} from "react"
 import {CartContext} from "../componentes/CartContext"
+import { Link } from 'react-router-dom';
 
 const ItemDetail=({datos})=>{
 
@@ -35,6 +36,7 @@ const ItemDetail=({datos})=>{
 
             }
             </div>
+            <Link to="/" ><button className='btnVolver'>Volver al inicio</button></Link>
         </>
     )
 }
