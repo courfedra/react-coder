@@ -76,27 +76,32 @@ const CartContextProvider = ({children}) =>{
 
 
     //limpia el carrito y setea el precio final a 0
-    const clearCart=()=>{
-        Swal.fire({
-            title: '¿Seguro que desea eliminar todo el carrito?',
-            text: "Modificaras tu carrito de manera irreversible",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#008f39',
-            cancelButtonColor: '#f90000',
-            confirmButtonText: '¡Si, quiero hacerlo!',
-            cancelButtonText: '¡No!, quiero mi Navidad',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                    'Listo',
-                    'Se ha vaciado el carrito',
-                    'success'
-                    );
-                    setCartList([]);
-                    setPrecioFinal(0)
-                }
-        })
+    const clearCart=(compra)=>{
+        if (compra){
+            setCartList([]);
+            setPrecioFinal(0)
+        }else{
+            Swal.fire({
+                title: '¿Seguro que desea eliminar todo el carrito?',
+                text: "Modificaras tu carrito de manera irreversible",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#008f39',
+                cancelButtonColor: '#f90000',
+                confirmButtonText: '¡Si, quiero hacerlo!',
+                cancelButtonText: '¡No!, quiero mi Navidad',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                        'Listo',
+                        'Se ha vaciado el carrito',
+                        'success'
+                        );
+                        setCartList([]);
+                        setPrecioFinal(0)
+                    }
+            })
+        }
     }
 
     //toma el cartList, lo lee, realiza las sumas de los subtotales y lo muestra por primera vez

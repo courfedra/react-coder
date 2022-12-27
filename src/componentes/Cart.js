@@ -3,17 +3,63 @@ import {CartContext} from '../componentes/CartContext'
 import {ProdCart} from "./ProdCart"
 import TotalPrice from "./TotalPrice"
 import {Link} from "react-router-dom"
+import { increment,updateDoc,doc,setDoc,collection, serverTimestamp } from "firebase/firestore";
+import {db} from "../utils/firebaseConfig"
+import Swal from "sweetalert2"
 
 const Cart = () => {
 
     const {cartList}=useContext(CartContext);
     const {deleteThis}=useContext(CartContext);
     const {clearCart}=useContext(CartContext);
-    const {buyCart}=useContext(CartContext);
     const {precioFinal}=useContext(CartContext);
     const {firstTotalPrice}=useContext(CartContext);
 
+    const test = useContext(CartContext)
 
+
+    const createOrder = () =>{
+        const order ={
+            comprador:{
+                nombre:"Lio Messi",
+                email:"lioMessi@psgfrancia.com",
+                tel:"+34123456789"
+            },
+            date: serverTimestamp(),
+            items: test.cartList.map(item=>({
+                id:item.id,
+                title:item.nombre,
+                price:item.precio,
+                qty:item.stockCart//va la cantidad comprada
+            })),
+            total: test.precioFinal
+        }
+        const createOrderInFirestore= async ()=>{
+            const newOrderRef = doc(collection(db, "orders"))
+            await setDoc(newOrderRef,order);
+            return newOrderRef
+        }
+        createOrderInFirestore()
+            .then(result=>{
+                Swal.fire({
+                    title:"¡Felicitaciones!",
+                    text: 'Has realizado la compra exitosamente',
+                    html:'Se ha generado su ticket de compra: '+result.id,
+                    icon:'success'
+                });
+                //actualizar stock deproductos comrpados
+                test.cartList.forEach(async(item)=>{
+                    const itemRef = doc(db,"productos",item.id)
+                    await updateDoc(itemRef, {
+                        stock: increment(-item.cantidad)
+                      });
+                    })
+                //vacio el carrito y actualizo el preciofinal a 0
+                test.clearCart(true)
+
+            })
+            .catch(err=>console.log(err))
+    }
 
     return(
         <div className="cart">
@@ -44,8 +90,8 @@ const Cart = () => {
                 <>
                     <TotalPrice totalPrice={precioFinal}/>
                     <div className="btnCard">
-                        <button className="btnClearCart" onClick={clearCart}>Borrar Carrito</button>
-                        <button className="btnBuyCart" onClick={buyCart}>Celebrar Navidad</button>
+                        <button className="btnClearCart" onClick={()=>{clearCart(false)}}>Borrar Carrito</button>
+                        <button className="btnBuyCart" onClick={createOrder}>Celebrar Navidad</button>
                     </div>
                 </>
             }
