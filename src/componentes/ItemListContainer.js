@@ -5,7 +5,7 @@ import {useState, useEffect,useContext} from "react";
 import customFetch from "../utils/customFetch";
 import {useParams} from "react-router-dom"
 import {CartContext} from "./CartContext"
-import { collection, getDocs,query,where } from "firebase/firestore";
+import { collection, getDocs,query,where,orderBy } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig"
 const ItemListContainer = () => {
 
@@ -23,7 +23,7 @@ const ItemListContainer = () => {
             if (idCategoria){
                 q=query(collection(db, "productos"),where("categoria","==",idCategoria))
             }else{
-                q=query(collection(db, "productos"))
+                q=query(collection(db, "productos"),orderBy("categoria"))
             }
             const querySnapshot = await getDocs(q);
             //metodo "docs" convierte array de documentos a array de objetos

@@ -13,13 +13,20 @@ const ItemDetailContainer=()=>{
     const {idItem}=useParams();
 
     useEffect(()=>{
-
+        //Funcion que deberia estar en otro archivo para modularizar y mejor practica
         const dbOneAsync= async()=>{
-            //eleccion deitem por ID
+            //eleccion de item por ID
             let q=doc(db, "productos",idItem)
             const docSnap = await getDoc(q);
-            let data=docSnap.data()
-            return data;
+
+            if(docSnap.exists()){
+                return{
+                    id:idItem,
+                    ...docSnap.data()
+                }
+            }else{
+                console.log("No se encontro el item")
+            }
         }
 
         dbOneAsync()
