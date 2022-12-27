@@ -5,26 +5,58 @@ import {useState, useEffect,useContext} from "react";
 import customFetch from "../utils/customFetch";
 import {useParams} from "react-router-dom"
 import {CartContext} from "./CartContext"
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs,query,where } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig"
 const ItemListContainer = () => {
 
     const [datos,setDatos] = useState([]);
     const {idCategoria}=useParams();
 
-const dbAsync= async()=>{
-        const querySnapshot = await getDocs(collection(db, "productos"));
-        querySnapshot.forEach((doc) => {
-            console.log("***")
-            console.log(`${doc.id} => ${doc.data()}`);
-            console.log("***")
-        });
-    }
+
 
 //componentDidMount
     useEffect(()=>{
-        dbAsync();
+
+        const dbAsync= async()=>{
+            //para cambiar categorias
+            let q;
+            if (idCategoria){
+                q=query(collection(db, "productos"),where("categoria","==",idCategoria))
+            }else{
+                q=query(collection(db, "productos"))
+            }
+            const querySnapshot = await getDocs(q);
+            //metodo "docs" convierte array de documentos a array de objetos
+            const dataFromFirestone = querySnapshot.docs.map(item=>({
+                id:item.id,
+                ...item.data()
+            }))
+            return dataFromFirestone;
+        }
+
+
+
+
+        dbAsync()
+            .then(result=>setDatos(result))
+            .catch(err=>console.log(err))
     },[idCategoria]);
+
+/*
+if (idCategoria)
+        {
+            customFetch(200,data.filter(item=>item.categoria===idCategoria))
+            .then(response => setDatos(response))
+            .catch(err=>console.log(err))
+        }
+        else
+        {
+            customFetch(2000,data)
+            .then(response => setDatos(response))
+            .catch(err=>console.log(err))
+        }
+*/
+
 
 //componente willUnMount
     useEffect(()=>{
