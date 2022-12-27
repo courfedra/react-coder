@@ -11,6 +11,7 @@ const ItemDetail=({datos})=>{
     const {addToCart}=useContext(CartContext);
     const {cartList}=useContext(CartContext)
 
+    const isInCart = cartList.filter(item=>item.id==datos.id)
 
     const onAdd = (qty) => {
         setItemCount(qty);
@@ -32,8 +33,7 @@ const ItemDetail=({datos})=>{
             </div>
             <div className="addCartDetail">
             {
-                /*para evitar que agregue mas cantidad de la que exite corroboro si esta en el carrito y directamente agrega mas unidades alli*/
-                (itemCount===0 && (cartList.map(item=>item.id===datos.id)<1))
+                (itemCount===0 && isInCart.length===0)
             ? <ItemCount stock={datos.stock} initial={itemCount} onAdd={onAdd}/>
             : <BotonCheckout/>
 
