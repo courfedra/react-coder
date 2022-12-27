@@ -3,11 +3,13 @@ import BotonCheckout from "./BotonCheckout"
 import {useState,useContext} from "react"
 import {CartContext} from "../componentes/CartContext"
 import { Link } from 'react-router-dom';
+import Cart from './Cart';
 
 const ItemDetail=({datos})=>{
 
     const [itemCount, setItemCount]=useState(0);
     const {addToCart}=useContext(CartContext);
+    const {cartList}=useContext(CartContext)
 
 
     const onAdd = (qty) => {
@@ -30,7 +32,8 @@ const ItemDetail=({datos})=>{
             </div>
             <div className="addCartDetail">
             {
-                itemCount===0
+                /*para evitar que agregue mas cantidad de la que exite corroboro si esta en el carrito y directamente agrega mas unidades alli*/
+                (itemCount===0 && (cartList.map(item=>item.id===datos.id)<1))
             ? <ItemCount stock={datos.stock} initial={itemCount} onAdd={onAdd}/>
             : <BotonCheckout/>
 
