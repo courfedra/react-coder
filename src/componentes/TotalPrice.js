@@ -1,7 +1,7 @@
 const TotalPrice=({totalPrice})=>{
 
     return(
-        <p>{totalPrice}</p>
+        <div className="totalPrice">Monto total: <span>${totalPrice}</span></div>
     )
 }
 export default TotalPrice

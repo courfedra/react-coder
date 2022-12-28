@@ -104,52 +104,85 @@ Navbar .navBarCart .linkCarrito span {
   list-style: none;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 100%;
   align-items: center;
 }
 .cart .cartCard .prodInCart {
-  width: 80%;
-  max-height: 15vh;
+  max-width: 100%;
+  height: auto;
   margin: 5px 0;
   display: flex;
+  flex-direction: row;
   background-color: rgba(0, 143, 57, 0.1333333333);
   border: 2px dotted #85833e;
   border-radius: 5px;
 }
 .cart .cartCard .prodInCart img {
-  width: 10%;
+  max-width: 20%;
+  height: 20%;
   margin: 5px;
+  align-self: center;
 }
 .cart .cartCard .prodInCart .prodInCartInfo {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.15em;
 }
 .cart .cartCard .prodInCart .prodInCartInfo .addInCart {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 25%;
+  width: auto;
 }
 .cart .cartCard .prodInCart .prodInCartInfo .addInCart .btnAddInCart, .cart .cartCard .prodInCart .prodInCartInfo .addInCart .btnSubInCart {
   background-color: #008f39;
-  margin: 5px;
-  width: 25%;
+  margin: 2.5px 5px;
+  width: 20%;
   border-radius: 10px;
 }
 .cart .cartCard .prodInCart .prodInCartInfo .addInCart .btnSubInCart {
   background-color: #f90000;
 }
 .cart .cartCard .prodInCart .prodInCartInfo .btnDeleteThis {
+  align-self: center;
+  width: auto;
   border-radius: 15px;
   padding: 5px;
   color: #f90000;
 }
 .cart .cartCard .prodInCart .prodInCartInfo .btnDeleteThis:hover {
   background-color: rgba(249, 0, 0, 0.1333333333);
+}
+.cart .cartCard .btnVolver {
+  background-color: #008f39;
+  padding: 5px;
+  margin: 5px;
+  letter-spacing: 1.5px;
+  border-radius: 15px;
+}
+.cart .cartCard .btnVolver:hover {
+  background-color: rgba(0, 143, 57, 0.8);
+}
+.cart .totalPrice {
+  width: auto;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 1px solid #101010;
+}
+.cart .totalPrice span {
+  margin: 0 2.5px;
+  margin: 0 2.5px;
+  border-bottom: 2.5px dotted #008f39;
 }
 .cart .btnCard {
   display: flex;
@@ -387,6 +420,16 @@ Navbar .navBarCart .linkCarrito span {
 .container .addCartDetail .linkCheckout .botonCheckout:hover {
   background-color: rgba(0, 143, 57, 0.6666666667);
 }
+.container .btnVolver {
+  background-color: #008f39;
+  padding: 5px;
+  margin: 5px;
+  letter-spacing: 1.5px;
+  border-radius: 15px;
+}
+.container .btnVolver:hover {
+  background-color: rgba(0, 143, 57, 0.8);
+}
 
 /*FOOTERS*/
 .footer {
@@ -433,35 +476,5 @@ Navbar .navBarCart .linkCarrito span {
     font-weight: 600;
     letter-spacing: 1.2px;
     font-size: medium;
-  }
-  Navbar .navBarCart {
-    width: 10%;
-    display: flex;
-    justify-content: center;
-  }
-  .gallery .card {
-    min-width: 100px;
-    min-height: 200px;
-    text-align: center;
-    width: 20%;
-    margin: 5px;
-    padding: 2.5px;
-  }
-  .gallery .card img {
-    max-width: 100%;
-    max-height: 40%;
-    padding: 2.5px;
-    border-radius: 5px;
-  }
-  .gallery .card h3 {
-    padding: 1.5px 0;
-    font-size: medium;
-  }
-  .cardDetail {
-    display: flex;
-    flex-direction: column;
-  }
-  .cardDetail .ImgCardDetail {
-    width: 25%;
   }
 }/*# sourceMappingURL=App.css.map */
