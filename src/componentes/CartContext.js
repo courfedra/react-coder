@@ -49,6 +49,7 @@ const CartContextProvider = ({children}) =>{
             cancelButtonColor: '#f90000',
             confirmButtonText: '¡Si, quiero hacerlo!',
             cancelButtonText: '¡No!, quiero mi Navidad',
+            width:"75%"
         }).then((result) => {
             if (result.isConfirmed) {
                 //notify Success
@@ -92,6 +93,7 @@ const CartContextProvider = ({children}) =>{
                 cancelButtonColor: '#f90000',
                 confirmButtonText: '¡Si, quiero hacerlo!',
                 cancelButtonText: '¡No!, quiero mi Navidad',
+                width:"75%"
                 }).then((result) => {
                     if (result.isConfirmed) {
                         setCartList([]);

@@ -46,7 +46,8 @@ const Cart = () => {
                     title:"¡Felicitaciones!",
                     text: 'Has realizado la compra exitosamente',
                     html:'Se ha generado su ticket de compra: '+result.id,
-                    icon:'success'
+                    icon:'success',
+                    width:"75%"
                 });
                 //actualizar stock deproductos comrpados
                 test.cartList.forEach(async(item)=>{
