@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 import { increment,updateDoc,doc,setDoc,collection, serverTimestamp } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig"
 import Swal from "sweetalert2"
+import {ToastContainer} from "react-toastify"
 
 const Cart = () => {
 

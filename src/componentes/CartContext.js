@@ -1,5 +1,6 @@
 import { createContext,useState } from "react"
 import Swal from "sweetalert2"
+import {ToastContainer, toast} from "react-toastify"
 
 export const CartContext = createContext();
 
@@ -7,6 +8,9 @@ const CartContextProvider = ({children}) =>{
     //array del carrito
     const [cartList,setCartList]=useState([])
     const [precioFinal,setPrecioFinal]=useState(0)
+
+    //notify Toastify
+    const notifyDeleteSuccess = () => toast("Borrado exitosamente");
 
     //funcion global, ver en el entregable
     const addToCart=(item,cantidad)=>{
@@ -47,18 +51,16 @@ const CartContextProvider = ({children}) =>{
             cancelButtonText: '¡No!, quiero mi Navidad',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Listo',
-                    'Se ha borrado exitosamente',
-                    'success'
-                );
+                //notify Success
+                notifyDeleteSuccess();
                 const itemFind=cartList.find(item=>item.id==id)
                 const newCartList=cartList.filter(item=>item.id!==id)
                 //setPrecioFinal(precioFinal-(itemFind.precio*(itemFind.cantidad-1)))
                 setCartList(newCartList)
                 showTotalAmount(itemFind.precio*(cantidad),false)
             }
-        })
+            <ToastContainer/>
+        });
     }
 
     //actualizo la cantidad de items agregados dentro del carrito
@@ -92,16 +94,13 @@ const CartContextProvider = ({children}) =>{
                 cancelButtonText: '¡No!, quiero mi Navidad',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire(
-                        'Listo',
-                        'Se ha vaciado el carrito',
-                        'success'
-                        );
                         setCartList([]);
-                        setPrecioFinal(0)
+                        setPrecioFinal(0);
+                        //notify Success
+                        notifyDeleteSuccess();
                     }
-            })
-        }
+            });
+        };
     }
 
     //toma el cartList, lo lee, realiza las sumas de los subtotales y lo muestra por primera vez

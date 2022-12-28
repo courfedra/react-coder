@@ -3,7 +3,6 @@ import BotonCheckout from "./BotonCheckout"
 import {useState,useContext} from "react"
 import {CartContext} from "../componentes/CartContext"
 import { Link } from 'react-router-dom';
-import Cart from './Cart';
 
 const ItemDetail=({datos})=>{
 

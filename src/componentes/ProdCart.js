@@ -12,6 +12,8 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
 
 //Toastify
 
+const notifyMaxStock = () => toast("Alcanzaste el maximo stock!");
+const notifyMinStock = () => toast("No puedes agregar menos cantidad!");
 
 
 
@@ -30,7 +32,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
             showTotalAmount(precio,true);
             actualizarCantidadCarrito(id,cantItem+1,true)
         }else{
-            alert("Poner Toasti")
+            notifyMaxStock();
         }
     }
 
@@ -42,7 +44,7 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
             showTotalAmount(precio,false);
             actualizarCantidadCarrito(id,cantItem-1,false)
         }else{
-            alert("Poner Toasti")
+            notifyMinStock();
         }
     }
 
@@ -70,7 +72,9 @@ export const ProdCart = ({img,nombre,stock,cantidad,precio,id,firstTotalPrice,de
                                 <li>Precio Unitario: ${precio}</li>
                                 <li>Sub Total: ${cantItem*precio}</li>
                                 <button className="btnDeleteThis" onClick={()=>{deleteThis(id,cantItem)}}>Eliminar producto</button>
+                                <ToastContainer/>
                             </div>
+                            
                         </div>
             </>
     )

@@ -1,7 +1,5 @@
 
 import ItemDetail from "../componentes/ItemDetail"
-import customFetch from "../utils/customFetch"
-import data from "../utils/data"
 import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
 

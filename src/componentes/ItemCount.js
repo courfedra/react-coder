@@ -10,11 +10,15 @@ const ItemCount = ({stock=0,initial=0,onAdd}) =>{
         setCount(initial)
     },[]);
 
+    //notify Toastify
+    const notifyMaxStock = () => toast("Alcanzaste el maximo stock!");
+    const notifyMinStock = () => toast("No puedes agregar menos cantidad!");
+
     const increment=()=>{
-        (stock>count)?setCount(count+1):alert("No hay mas!")
+        (stock>count)?setCount(count+1):notifyMaxStock()
     }
     const decrement=()=>{
-        (initial+1<count)?setCount(count-1):alert("No podes comprar negativo!")
+        (initial+1<count)?setCount(count-1):notifyMinStock()
     }
 
     return(
@@ -24,6 +28,7 @@ const ItemCount = ({stock=0,initial=0,onAdd}) =>{
                 <div className="divCounter">{count}</div>
                 <button className="btnAdd" onClick={increment}><GrAdd/></button>
             </div>
+            <ToastContainer/>
             <div className="divBuy">
             {
                 stock&&count
