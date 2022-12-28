@@ -42,21 +42,6 @@ const ItemListContainer = () => {
             .catch(err=>console.log(err))
     },[idCategoria]);
 
-/*
-if (idCategoria)
-        {
-            customFetch(200,data.filter(item=>item.categoria===idCategoria))
-            .then(response => setDatos(response))
-            .catch(err=>console.log(err))
-        }
-        else
-        {
-            customFetch(2000,data)
-            .then(response => setDatos(response))
-            .catch(err=>console.log(err))
-        }
-*/
-
 
 //componente willUnMount
     useEffect(()=>{
