@@ -116,10 +116,11 @@ Navbar
         list-style: none;
         display: flex;
         flex-direction:column;
-        max-width: 100%;
+        width: 100%;
         align-items: center;
         .prodInCart{
             max-width: 100%;
+            min-width: 50%;
             height: auto;
             margin: 5px 0;
             display: flex;
@@ -128,7 +129,7 @@ Navbar
             border: 2px dotted #85833e;
             border-radius: 5px;
             img{
-                max-width: 20%;
+                width: 20%;
                 height: 20%;
                 margin: 5px;
                 align-self: center;
@@ -162,6 +163,7 @@ Navbar
                     width: auto;
                     border-radius: 15px;
                     padding: 5px;
+                    margin: 5px;
                     color: #f90000;
                     &:hover{
                         background-color: #f9000022;
