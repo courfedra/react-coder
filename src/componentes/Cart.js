@@ -15,7 +15,7 @@ const Cart = () => {
     const {precioFinal}=useContext(CartContext);
     const {firstTotalPrice}=useContext(CartContext);
 
-    const test = useContext(CartContext)
+    const ctx = useContext(CartContext)
 
 
     const createOrder = () =>{
@@ -26,13 +26,13 @@ const Cart = () => {
                 tel:"+34123456789"
             },
             date: serverTimestamp(),
-            items: test.cartList.map(item=>({
+            items: ctx.cartList.map(item=>({
                 id:item.id,
                 title:item.nombre,
                 price:item.precio,
                 qty:item.stockCart//va la cantidad comprada
             })),
-            total: test.precioFinal
+            total: ctx.precioFinal
         }
         const createOrderInFirestore= async ()=>{
             const newOrderRef = doc(collection(db, "orders"))
@@ -49,14 +49,14 @@ const Cart = () => {
                     width:"75%"
                 });
                 //actualizar stock deproductos comrpados
-                test.cartList.forEach(async(item)=>{
+                ctx.cartList.forEach(async(item)=>{
                     const itemRef = doc(db,"productos",item.id)
                     await updateDoc(itemRef, {
                         stock: increment(-item.cantidad)
                       });
                     })
                 //vacio el carrito y actualizo el preciofinal a 0
-                test.clearCart(true)
+                ctx.clearCart(true)
 
             })
             .catch(err=>console.log(err))
