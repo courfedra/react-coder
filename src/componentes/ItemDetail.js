@@ -38,7 +38,7 @@ const ItemDetail=({datos})=>{
 
             }
             </div>
-            <Link to="/" ><button className='btnVolver'>Volver al inicio</button></Link>
+            <Link to="/" ><button className='btnVolver'>Volver al catalogo</button></Link>
         </>
     )
 }

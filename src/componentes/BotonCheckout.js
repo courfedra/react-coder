@@ -3,7 +3,7 @@ const BotonCheckout = () => {
     return(
         <Link to="/Cart" className="linkCheckout">
             <button className="botonCheckout">
-                Checkout Carrito
+                Checkout Carrito - Producto Agregado
             </button>
         </Link>
     )

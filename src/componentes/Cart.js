@@ -6,7 +6,6 @@ import {Link} from "react-router-dom"
 import { increment,updateDoc,doc,setDoc,collection, serverTimestamp } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig"
 import Swal from "sweetalert2"
-import {ToastContainer} from "react-toastify"
 
 const Cart = () => {
 
@@ -93,7 +92,7 @@ const Cart = () => {
                     <TotalPrice totalPrice={precioFinal}/>
                     <div className="btnCard">
                         <button className="btnClearCart" onClick={()=>{clearCart(false)}}>Borrar Carrito</button>
-                        <button className="btnBuyCart" onClick={createOrder}>Celebrar Navidad</button>
+                        <button className="btnBuyCart" onClick={createOrder}>Comprar Carrito</button>
                     </div>
                 </>
             }

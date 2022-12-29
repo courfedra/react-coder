@@ -1,10 +1,7 @@
 import ItemList from "./ItemList";
 import Loading from "./Loading"
-import data from "../utils/data";
-import {useState, useEffect,useContext} from "react";
-import customFetch from "../utils/customFetch";
+import {useState, useEffect} from "react";
 import {useParams} from "react-router-dom"
-import {CartContext} from "./CartContext"
 import { collection, getDocs,query,where,orderBy } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig"
 const ItemListContainer = () => {

@@ -74,7 +74,6 @@ const notifyMinStock = () => toast("No puedes agregar menos cantidad!");
                                 <button className="btnDeleteThis" onClick={()=>{deleteThis(id,cantItem)}}>Eliminar producto</button>
                                 <ToastContainer/>
                             </div>
-                            
                         </div>
             </>
     )
