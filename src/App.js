@@ -8,7 +8,7 @@ import CartContextProvider from "./componentes/CartContext"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.js';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-
+//ADD COMMENTARY
 const App = () => {
   return (
       <>
